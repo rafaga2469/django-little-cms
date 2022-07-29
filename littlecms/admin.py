@@ -1,5 +1,5 @@
 from django.contrib import admin
-from simplecms.models import ArticleImage, Image, Article, ArticleType, Page, MenuOption, PageArticle
+from littlecms.models import ArticleImage, Image, Article, ArticleType, Page, MenuOption, PageArticle
 
 # Register your models here.
 

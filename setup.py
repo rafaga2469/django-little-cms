@@ -4,7 +4,7 @@ from setuptools import find_packages, setup
 HERE = pathlib.Path(__file__).parent
 
 VERSION = '0.0.1'
-PACKAGE_NAME = 'django-simple-cms'
+PACKAGE_NAME = 'django-little-cms'
 AUTHOR = 'Rafael Ricardo Pinto'
 AUTHOR_EMAIL = 'rafaga2469@gmail.com'
 URL = 'https://github.com/rafaga2469'
@@ -32,5 +32,5 @@ setup(name=PACKAGE_NAME,
       url=URL,
       install_requires=INSTALL_REQUIRES,
       license=LICENSE,
-      packages=find_packages(),
+      packages=find_packages(exclude=['little_cms','littlecms_example','little_cms/*','littlecms_example/*']),
       include_package_data=True)

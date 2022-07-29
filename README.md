@@ -1,4 +1,4 @@
-# django-simple-cms
+# django-little-cms
 
 [Por Rafael Ricardo Pinto - https://www.linkedin.com/](https://www.linkedin.com/in/rafael-ricardo-pinto-díaz-508017123) 
 

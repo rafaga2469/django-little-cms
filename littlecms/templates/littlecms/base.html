@@ -1,4 +1,4 @@
-{% extends "simplecms/bootstrap.html" %}
+{% extends "littlecms/bootstrap.html" %}
 {% block title %}
     {% if menu_option.page %}
         {{ menu_option.page.title }}
@@ -24,7 +24,7 @@
             </button>
             <div class="collapse navbar-collapse" id="main_nav">
                 <ul class="navbar-nav">
-                    {% include "simplecms/menu.html" %}
+                    {% include "littlecms/menu.html" %}
                 </ul>
             </div>
         </div>
@@ -33,5 +33,5 @@
     {% endblock breadcrumb %}
 {% endblock navbar %}
 {% block content %}
-    {% include "simplecms/content.html" %}
+    {% include "littlecms/content.html" %}
 {% endblock content %}

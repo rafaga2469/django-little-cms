@@ -321,6 +321,6 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,django,python,linux,visualstudiocode
 
-simple_cms/
-simplecms_example/
+little_cms/
+littlecms_example/
 .vscode/settings.json

@@ -1,4 +1,4 @@
-from simplecms.models import MenuOption
+from littlecms.models import MenuOption
 
 
 def menuOptions(request):

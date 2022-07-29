@@ -1,7 +1,7 @@
 from django.views import View
 from django.contrib import messages
 from django.shortcuts import redirect, render
-from simplecms.models import Article, MenuOption
+from littlecms.models import Article, MenuOption
 from django.utils.translation import gettext_lazy as _
 
 
@@ -16,7 +16,7 @@ class BaseCmsView(View):
             menu_option = MenuOption.objects.filter(slug=menu_option_slug)
         if menu_option:
             menu_option = menu_option.first()
-            template = 'simplecms/base.html'
+            template = 'littlecms/base.html'
             if menu_option.page:
                 template = menu_option.page.template if menu_option.page.template else template
             context = {'menu_option': menu_option}
@@ -36,7 +36,7 @@ class ArticleDetailView(View):
             menu_option = menu_option.first()
             article = article.first()
             context = {'menu_option': menu_option, 'article': article}
-            return render(request, 'simplecms/article_detail.html', context)
+            return render(request, 'littlecms/article_detail.html', context)
         else:
             messages.error(request, _('No se encontró la opción solicitada'))
-            return render(request, 'simplecms/article_detail.html')
+            return render(request, 'littlecms/article_detail.html')

@@ -5,7 +5,7 @@ import ckeditor_uploader.fields
 import colorfield.fields
 from django.db import migrations, models
 import django.db.models.deletion
-import simplecms.models
+import littlecms.models
 
 
 class Migration(migrations.Migration):
@@ -42,7 +42,7 @@ class Migration(migrations.Migration):
             name='ArticleType',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', simplecms.models.UpperCaseCharField(db_column='name', help_text="The article type's name.", max_length=200, verbose_name='Name')),
+                ('name', littlecms.models.UpperCaseCharField(db_column='name', help_text="The article type's name.", max_length=200, verbose_name='Name')),
                 ('description', ckeditor.fields.RichTextField(blank=True, db_column='description', help_text="The article type's description.", null=True, verbose_name='Description')),
                 ('template', models.CharField(db_column='template', default='basic.html', help_text="The template on which the article's is rendered.", max_length=200, verbose_name='Template')),
                 ('is_active', models.BooleanField(db_column='is_active', default=True, help_text='Is the article type active?', verbose_name='Active')),
@@ -91,8 +91,8 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('order', models.IntegerField(db_column='order', default=0, help_text='Order of the article in the page.', verbose_name='Order')),
-                ('article', models.ForeignKey(db_column='article', help_text='Article is included in this page.', on_delete=django.db.models.deletion.DO_NOTHING, to='simplecms.article', verbose_name='Article')),
-                ('page', models.ForeignKey(db_column='page', help_text='Article is included in this page.', on_delete=django.db.models.deletion.DO_NOTHING, to='simplecms.page', verbose_name='Page')),
+                ('article', models.ForeignKey(db_column='article', help_text='Article is included in this page.', on_delete=django.db.models.deletion.DO_NOTHING, to='littlecms.article', verbose_name='Article')),
+                ('page', models.ForeignKey(db_column='page', help_text='Article is included in this page.', on_delete=django.db.models.deletion.DO_NOTHING, to='littlecms.page', verbose_name='Page')),
             ],
             options={
                 'verbose_name': 'Page Article',
@@ -103,12 +103,12 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='page',
             name='articles',
-            field=models.ManyToManyField(blank=True, db_column='articles', help_text='Articles included in this page.', related_name='articles', through='simplecms.PageArticle', to='simplecms.article', verbose_name='Articles'),
+            field=models.ManyToManyField(blank=True, db_column='articles', help_text='Articles included in this page.', related_name='articles', through='littlecms.PageArticle', to='littlecms.article', verbose_name='Articles'),
         ),
         migrations.AddField(
             model_name='page',
             name='background_image',
-            field=models.ForeignKey(blank=True, db_column='background_image', help_text='Background image of the page.', null=True, on_delete=django.db.models.deletion.SET_NULL, to='simplecms.image', verbose_name='Background Image'),
+            field=models.ForeignKey(blank=True, db_column='background_image', help_text='Background image of the page.', null=True, on_delete=django.db.models.deletion.SET_NULL, to='littlecms.image', verbose_name='Background Image'),
         ),
         migrations.CreateModel(
             name='MenuOption',
@@ -122,8 +122,8 @@ class Migration(migrations.Migration):
                 ('is_active', models.BooleanField(db_column='is_active', default=True, help_text='Is the menu option active?', verbose_name='Active')),
                 ('date_created', models.DateTimeField(auto_now_add=True, db_column='date_created', help_text='Date this menu option was created.', verbose_name='Date Created')),
                 ('date_updated', models.DateTimeField(auto_now=True, db_column='date_updated', help_text='Date this menu option was updated.', verbose_name='Date Updated')),
-                ('page', models.ForeignKey(blank=True, db_column='page', help_text='Page of the menu option.', null=True, on_delete=django.db.models.deletion.SET_NULL, to='simplecms.page', verbose_name='Page')),
-                ('parent', models.ForeignKey(blank=True, db_column='parent', help_text='Parent of the menu option.', null=True, on_delete=django.db.models.deletion.SET_NULL, to='simplecms.menuoption', verbose_name='Parent')),
+                ('page', models.ForeignKey(blank=True, db_column='page', help_text='Page of the menu option.', null=True, on_delete=django.db.models.deletion.SET_NULL, to='littlecms.page', verbose_name='Page')),
+                ('parent', models.ForeignKey(blank=True, db_column='parent', help_text='Parent of the menu option.', null=True, on_delete=django.db.models.deletion.SET_NULL, to='littlecms.menuoption', verbose_name='Parent')),
             ],
             options={
                 'verbose_name': 'Menu Option',
@@ -136,8 +136,8 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('order', models.IntegerField(db_column='order', default=0, help_text='Order of the image in the article.', verbose_name='Order')),
-                ('article', models.ForeignKey(db_column='article', help_text='Image is included in this article.', on_delete=django.db.models.deletion.DO_NOTHING, to='simplecms.article', verbose_name='Article')),
-                ('image', models.ForeignKey(db_column='image', help_text='Image is included in this article.', on_delete=django.db.models.deletion.DO_NOTHING, to='simplecms.image', verbose_name='Image')),
+                ('article', models.ForeignKey(db_column='article', help_text='Image is included in this article.', on_delete=django.db.models.deletion.DO_NOTHING, to='littlecms.article', verbose_name='Article')),
+                ('image', models.ForeignKey(db_column='image', help_text='Image is included in this article.', on_delete=django.db.models.deletion.DO_NOTHING, to='littlecms.image', verbose_name='Image')),
             ],
             options={
                 'verbose_name': 'Article Image',
@@ -148,16 +148,16 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='article',
             name='background_image',
-            field=models.ForeignKey(blank=True, db_column='background_image', help_text="Background image of the article's.", null=True, on_delete=django.db.models.deletion.SET_NULL, to='simplecms.image', verbose_name='Background Image'),
+            field=models.ForeignKey(blank=True, db_column='background_image', help_text="Background image of the article's.", null=True, on_delete=django.db.models.deletion.SET_NULL, to='littlecms.image', verbose_name='Background Image'),
         ),
         migrations.AddField(
             model_name='article',
             name='images',
-            field=models.ManyToManyField(blank=True, db_column='images', help_text="Images included in the article's.", related_name='images', through='simplecms.ArticleImage', to='simplecms.image', verbose_name='Images'),
+            field=models.ManyToManyField(blank=True, db_column='images', help_text="Images included in the article's.", related_name='images', through='littlecms.ArticleImage', to='littlecms.image', verbose_name='Images'),
         ),
         migrations.AddField(
             model_name='article',
             name='type',
-            field=models.ForeignKey(db_column='type', help_text="Article's type.", on_delete=django.db.models.deletion.DO_NOTHING, to='simplecms.articletype', verbose_name='Type'),
+            field=models.ForeignKey(db_column='type', help_text="Article's type.", on_delete=django.db.models.deletion.DO_NOTHING, to='littlecms.articletype', verbose_name='Type'),
         ),
     ]

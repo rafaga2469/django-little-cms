@@ -9,7 +9,7 @@
         <span class="dropdown-item" >{% trans sub_option.name %} &raquo;</span>
         <ul class="submenu dropdown-menu">
             {% for option in sub_option.list_children %}
-                {% include "simplecms/menu_sub_item.html" with sub_option=option %}
+                {% include "littlecms/menu_sub_item.html" with sub_option=option %}
             {% endfor %}
         </ul>
     </li>    

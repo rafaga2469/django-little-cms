@@ -1,4 +1,4 @@
-{% extends "simplecms/base.html" %}
+{% extends "littlecms/base.html" %}
 {% load i18n static %}
 {% block title %}
     {% trans article.title %}
@@ -6,7 +6,7 @@
 {% block breadcrumb %}
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            {% include "simplecms/breadcrumb_item.html" with option=menu_option %}
+            {% include "littlecms/breadcrumb_item.html" with option=menu_option %}
             {% if article %}
                 <li class="breadcrumb-item">
                     <a href="{% url "base_cms" menu_option_slug=menu_option.slug %}">{{ menu_option.name }}</a>

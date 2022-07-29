@@ -1,5 +1,5 @@
 {% if option.parent %}
-    {% include "simplecms/breadcrumb_item.html" with option=option.parent %}
+    {% include "littlecms/breadcrumb_item.html" with option=option.parent %}
     <li class="breadcrumb-item">
         <a href="{% url "base_cms" menu_option_slug=option.parent.slug %}">{{ option.parent.name }}</a>
     </li>

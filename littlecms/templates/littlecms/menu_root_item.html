@@ -9,7 +9,7 @@
         <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">{% trans option.name %}</a>
         <ul class="dropdown-menu">
             {% for sub_option in option.list_children %}
-                {% include "simplecms/menu_sub_item.html" %}
+                {% include "littlecms/menu_sub_item.html" %}
             {% endfor %}
         </ul>
     </li>
